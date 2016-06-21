@@ -60,7 +60,7 @@ public class Buscar extends Fragment {
                 boolean handled = false;
                 if (actionId == EditorInfo.IME_ACTION_SEARCH
                         || (event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER))) {
-                    startSearch();
+                    BuscarFime();
                     handled = true;
                 }
                 return handled;
@@ -70,7 +70,7 @@ public class Buscar extends Fragment {
         btnBuscar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startSearch();
+                BuscarFime();
             }
         });
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
@@ -103,12 +103,12 @@ public class Buscar extends Fragment {
         return view;
     }
 
-    private void startSearch() {
+    private void BuscarFime() {
         try{
             if (Funcoes.temConexao(getActivity())) {
 
-                ConexaoOmdb connection = new ConexaoOmdb(getActivity());
-                JSONObject response = connection.omdbBusca(txtTitulo.getText().toString().trim());
+                ConexaoOmdb conexao = new ConexaoOmdb(getActivity());
+                JSONObject response = conexao.omdbBusca(txtTitulo.getText().toString().trim());
 
                 if (response == null) {
                     Toast.makeText(getActivity(), "Não encontrado", Toast.LENGTH_LONG).show();

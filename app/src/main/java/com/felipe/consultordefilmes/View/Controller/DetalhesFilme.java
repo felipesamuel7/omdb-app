@@ -17,7 +17,9 @@ import com.felipe.consultordefilmes.R;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-
+/**
+ * Created by felip on 18/06/2016.
+ */
 public class DetalhesFilme extends AppCompatActivity {
 
     ImageView ivImagem;
@@ -58,8 +60,8 @@ public class DetalhesFilme extends AppCompatActivity {
                 filmeDetalhado = dao.ListarFilme(imdbID);
             } else {
                 if (Funcoes.temConexao(this)) {
-                    ConexaoOmdb connection = new ConexaoOmdb(this);
-                    JSONObject response = connection.omdbTitulo(imdbID);
+                    ConexaoOmdb conexao = new ConexaoOmdb(this);
+                    JSONObject response = conexao.omdbTitulo(imdbID);
                     if (response == null) {
                         Toast.makeText(this, "Não encontrado", Toast.LENGTH_LONG).show();
                         return;
@@ -86,7 +88,7 @@ public class DetalhesFilme extends AppCompatActivity {
 
 
             if (Funcoes.temConexao(this)) {
-                drawable = Funcoes.LoadImageFromWebOperations(this, filmeDetalhado.getUrlPoster());
+                drawable = Funcoes.CarregarImagem(this, filmeDetalhado.getUrlPoster());
             } else {
                 drawable = this.getResources().getDrawable(R.drawable.imagem_padrao);
             }

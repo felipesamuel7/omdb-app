@@ -29,7 +29,7 @@ public class Funcoes {
         }
     }
 
-    public static Drawable LoadImageFromWebOperations(Context context, String url) {
+    public static Drawable CarregarImagem(Context context, String url) {
         try {
             InputStream is = (InputStream) new URL(url).getContent();
             Drawable d = Drawable.createFromStream(is, "src name");

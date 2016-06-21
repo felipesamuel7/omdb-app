@@ -13,8 +13,6 @@ import com.felipe.consultordefilmes.Common.Funcoes;
 import com.felipe.consultordefilmes.Model.FilmeResumido;
 import com.felipe.consultordefilmes.R;
 
-import java.io.InputStream;
-import java.net.URL;
 import java.util.List;
 
 /**
@@ -61,7 +59,7 @@ public class FilmesAdapter extends RecyclerView.Adapter<FilmesAdapter.MyViewHold
         holder.ano.setText(filme.getAno());
 
         if (Funcoes.temConexao(context)) {
-            drawable = Funcoes.LoadImageFromWebOperations(context, filme.getPoster());
+            drawable = Funcoes.CarregarImagem(context, filme.getPoster());
         } else {
             drawable = context.getResources().getDrawable(R.drawable.imagem_padrao);
         }

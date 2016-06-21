@@ -18,6 +18,9 @@ import com.felipe.consultordefilmes.R;
 import com.felipe.consultordefilmes.View.Controller.Buscar;
 import com.felipe.consultordefilmes.View.Controller.HistoricoDeBuscas;
 
+/**
+ * Created by felip on 18/06/2016.
+ */
 public class Principal extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
